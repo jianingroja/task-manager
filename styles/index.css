@@ -307,7 +307,7 @@ body {
   padding-top: 10px;
 }
 
-.model-btn-cancel {
+.modal-btn-cancel {
   background-color: #ffffff;
   border: 1px solid #cccccc;
   border-radius: 5px;
@@ -318,7 +318,7 @@ body {
   width: 60px;
 }
 
-.model-btn-ok {
+.modal-btn-ok {
   background-color: #3080fe;
   border: 1px solid #3080fe;
   border-radius: 5px;

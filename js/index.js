@@ -1,13 +1,24 @@
 // You Need to implement
 
+//渲染整个页面
+function renderPage() {
+  //showStatisticsCards();
+  showAllTasks();
+}
+
+// 显示所有任务
+function showAllTasks(sortKey = "createDate", sortValue = -1) {
+  //sortTasks(sortKey, sortValue);
+  let allTasks = getAllTasks();
+  createTaskBody(allTasks);
+}
+
 //创建任务列表
 
-function renderPage() {
-  let allTasks = getAllTasks();
-
+function createTaskBody(tasks) {
   let taskBody = document.getElementById("taskBody");
   taskBody.innerHTML = "";
-  allTasks.forEach((task) => {
+  tasks.forEach((task) => {
     let taskRow = document.createElement("tr");
     taskRow.classList.add("task-row");
 
