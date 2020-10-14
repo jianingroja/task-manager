@@ -98,3 +98,160 @@ body {
 .closed-task {
   background-image: url("../images/closed_tasks_bg.svg");
 }
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.tools {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 16px 0;
+}
+
+.btn {
+  outline: none;
+  cursor: pointer;
+}
+
+.search-btn,
+.add-btn {
+  padding: 5px 10px 2px;
+  border-radius: 15px;
+  border: 1px solid #308169;
+  background-color: #fff;
+  margin: 2px 15px;
+}
+
+.add-btn {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.search-input {
+  width: 240px;
+  padding-left: 5px;
+  font-size: 15px;
+  color: #256b56;
+  outline: none;
+  border: 0;
+  border-bottom: 2px solid #256b56; /*和按钮同款绿色，美不胜收*/
+}
+
+.task-list {
+  height: 100%;
+  opacity: 0.8;
+  margin: 0 10px;
+}
+
+.task-data-container {
+  width: 100%;
+  table-layout: fixed; /*列的宽度由该列首行决定*/
+}
+
+.task-header {
+  background-color: #ebecf0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.sort-up {
+  background-image: url("../images/sort_up.svg");
+  /*-webkit-mask: url(../images/sort_up.svg) no-repeat center;*/
+  /* height: 16px; */
+}
+
+.sort-down {
+  background-image: url("../images/sort_down.svg");
+}
+
+.sort-btn {
+  border: 0;
+  height: 11px;
+  background-position: center;
+}
+
+.sort-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.task-row {
+  display: flex;
+  text-align: left;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ebecf0;
+}
+
+.task-num-col {
+  width: 5%;
+}
+
+.task-name-col {
+  width: 16%;
+  display: flex;
+}
+
+.task-desc-col {
+  width: 45%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; /*放置鼠标时，向下展示溢出内容*/
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.task-desc-col:hover {
+  overflow: visible;
+  /* 展示溢出内容时，不要让行高变化
+  -webkit-box-orient: inherit;
+  text-overflow: inherit;
+  */
+}
+
+.task-deadline-col {
+  display: flex;
+  width: 14%;
+}
+
+.task-status-col {
+  display: flex;
+  width: 12%;
+}
+
+.task-operation-col {
+  width: 8%;
+  display: flex;
+  justify-content: center;
+}
+
+.task-body {
+  font-size: 15px;
+  overflow: scroll;
+  max-height: calc(100% - 280px);
+}
+
+.active {
+  color: #b1b106;
+}
+
+.pending {
+  color: #5252bb;
+}
+
+.closed {
+  color: #ee5271;
+}
+
+.btn-icon {
+  /*显示单纯的图标*/
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+}
