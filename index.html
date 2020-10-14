@@ -58,7 +58,7 @@
             <button class="btn search-btn">
               <img src="./images/search.svg" alt="search" />
             </button>
-            <button class="btn add-btn">
+            <button class="btn add-btn" onclick="createAddTaskPopover()">
               <img src="./images/add.svg" alt="add" />
             </button>
           </div>
@@ -97,6 +97,7 @@
             </thead>
             <!--表体-->
             <tbody id="taskBody" class="task-body">
+              <!--
               <tr class="task-row">
                 <td class="task-num-col">1</td>
                 <td class="task-name-col">1</td>
@@ -114,11 +115,43 @@
                     <img src="images/update.svg" alt="update" />
                   </button>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </section>
       </article>
     </main>
+    <article id="modal" class="modal">
+      <section class="popover">
+        <header class="modal-title">
+          <img id="modalIcon" alt="icon" height="26px" width="26px" />
+          <h2 id="modalTitle" class="modal-title"></h2>
+          <button class="btn btn-icon" onclick="hideModalPopover()">
+            <img src="./images/modal_cancel_icon.svg" alt="cancel" />
+          </button>
+        </header>
+        <section id="modalContainer" class="modal-container">
+          <p class="text-container">
+            <label for="taskName">Name</label>
+            <input id="taskName" type="text" />
+            <label for="taskDeadline">Deadline</label>
+            <input id="taskDeadline" type="text" />
+            <label for="taskDesc">Description</label>
+            <textarea
+              id="taskDesc"
+              rows="5"
+              maxlength="200"
+              placeholder="Please enter task description, maximum 200 characters"
+            ></textarea>
+          </p>
+        </section>
+        <footer id="modalFooter" class="modal-footer">
+          <button class="btn modal-btn-cancel" onclick="hideModalPopover()">
+            取消
+          </button>
+          <button id="modalBtnOk" class="btn modal-btn-ok">确认</button>
+        </footer>
+      </section>
+    </article>
   </body>
 </html>
