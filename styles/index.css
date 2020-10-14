@@ -33,3 +33,68 @@ body {
 .title {
   text-align: center;
 }
+
+/*让四个平均分布*/
+.overview {
+  display: flex;
+  justify-content: space-around;
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1; /*要和max-width连用*/
+  height: 80px;
+  max-width: 23%; /*手动压缩窗口时不会溢出*/
+  border-radius: 5px;
+  background-position: center center;
+  background-size: cover;
+  background-blend-mode: multiply; /*图片与颜色的混合模式：正片叠底模式*/
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.statistics-left {
+  flex-grow: 1;
+}
+
+.statistics-title {
+  margin: 0;
+  padding: 8px;
+}
+
+.statistics-content {
+  margin: 0;
+  padding: 0 8px;
+  font-size: 30px;
+} /*??*/
+
+.statistics-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.statistics_proportion {
+  font-size: 50px;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.all-task {
+  background-image: url("../images/all_tasks_bg.jpg");
+}
+
+.active-task {
+  background-image: url("../images/active_task_bg.svg");
+}
+
+.pending-task {
+  background-image: url("../images/padding_tasks_bg.svg");
+}
+
+.closed-task {
+  background-image: url("../images/closed_tasks_bg.svg");
+}
