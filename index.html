@@ -66,7 +66,7 @@
         <!--列表内容的section-->
         <section class="task-list">
           <table class="task-data-container">
-            <!--表头-->
+            <!--表头-不动-->
             <thead class="task-header">
               <tr class="task-row">
                 <th class="task-num-col">#</th>
@@ -95,7 +95,7 @@
                 <th class="task-operation-col">Operation</th>
               </tr>
             </thead>
-            <!--表体-->
+            <!--表体-需要填充-->
             <tbody id="taskBody" class="task-body">
               <!--
               <tr class="task-row">
@@ -131,11 +131,12 @@
           </button>
         </header>
         <section id="modalContainer" class="modal-container">
+          <!--
           <p class="text-container">
             <label for="taskName">Name</label>
             <input id="taskName" type="text" />
             <label for="taskDeadline">Deadline</label>
-            <input id="taskDeadline" type="text" />
+            <input id="taskDeadline" type="text" placeholder="2020-10-15" />
             <label for="taskDesc">Description</label>
             <textarea
               id="taskDesc"
@@ -144,6 +145,7 @@
               placeholder="Please enter task description, maximum 200 characters"
             ></textarea>
           </p>
+          -->
         </section>
         <footer id="modalFooter" class="modal-footer">
           <button class="btn modal-btn-cancel" onclick="hideModalPopover()">

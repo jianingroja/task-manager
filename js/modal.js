@@ -11,11 +11,11 @@ function hideModalPopover() {
   modal.classList.remove("modal-flex-center");
 }
 
-//创建新任务弹出框
+//设置新任务弹出框
 function createAddTaskPopover() {
   const icon = "./images/modal_add_icon.svg";
   const title = "A New Task";
-  createModalPopover(icon, title, "createTask()");
+  createModalPopover(icon, title, "createTask()"); //没有传入task参数，所以不显示状态选择栏
   showModalPopover();
 }
 
@@ -47,7 +47,7 @@ function createTask() {
   }
 
   //若不为空则关闭弹出框，新增任务行
-  let allTask = getAllTasks();
+  let allTask = getAllTasks(); //复制已有任务
   const maxId = allTask.reduce(
     (preId, task) => (preId > task.id ? preId : task.id),
     0
@@ -61,8 +61,8 @@ function createTask() {
     createDate: new Date().getTime(),
   };
 
-  allTask.push(task);
-  saveAllTasks(allTask);
+  allTask.push(task); //形成新的任务列表
+  saveAllTasks(allTask); //告诉localstorage
   renderPage();
   hideModalPopover();
 }
@@ -81,7 +81,7 @@ function requiredCheck(elements) {
   return result;
 }
 
-//设置弹出框主体内容
+//填充弹出框的主体内容
 function createPopoverContent(task) {
   let container = document.createElement("p");
   container.classList.add("text-container");
@@ -94,6 +94,7 @@ function createPopoverContent(task) {
   let nameInput = document.createElement("input");
   nameInput.setAttribute("type", "text");
   nameInput.setAttribute("id", "taskName");
+  nameInput.setAttribute("placeholder", "Going to Norway");
   nameInput.value = task ? task.name : "";
   container.appendChild(nameInput);
 
@@ -105,9 +106,11 @@ function createPopoverContent(task) {
   let deadlineInput = document.createElement("input");
   deadlineInput.setAttribute("type", "text");
   deadlineInput.setAttribute("id", "taskDeadline");
+  deadlineInput.setAttribute("placeholder", "2020-10-15");
   deadlineInput.value = task ? task.deadline : "";
   container.appendChild(deadlineInput);
 
+  //如果task已经存在，就展示状态栏
   if (task) {
     let statusLabel = document.createElement("label");
     statusLabel.textContent = "Status";
@@ -184,4 +187,38 @@ function createPopoverContent(task) {
   let modalContainer = document.getElementById("modalContainer");
   modalContainer.innerHTML = "";
   modalContainer.appendChild(container);
+}
+
+//创建更新任务弹出框
+function createUpdateTaskPopover(id) {
+  const icon = "./images/update.svg";
+  const title = "Update Task";
+  const okBtnClickEvent = "updateTask(" + id + ")";
+  let task = findTask(id);
+  createModalPopover(icon, title, okBtnClickEvent, task); //传入了task参数，显示状态选择栏
+  showModalPopover();
+}
+
+//更新任务
+function updateTask(id) {
+  let taskName = document.getElementById("taskName");
+  let deadline = document.getElementById("taskDeadline");
+  let desc = document.getElementById("taskDesc");
+  if (requiredCheck([taskName, deadline, desc])) {
+    return;
+  }
+  let statusDoms = document.getElementsByName("Status");
+  let status = Array.from(statusDoms).find((status) => status.checked).value;
+  let tasks = getAllTasks().map((task) => {
+    if (task.id === id) {
+      task.name = taskName.value;
+      task.deadline = deadline.value;
+      task.description = desc.value;
+      task.status = status;
+    }
+    return task;
+  });
+  saveAllTasks(tasks);
+  renderPage();
+  hideModalPopover();
 }

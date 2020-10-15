@@ -14,7 +14,6 @@ function showAllTasks(sortKey = "createDate", sortValue = -1) {
 }
 
 //创建任务列表
-
 function createTaskBody(tasks) {
   let taskBody = document.getElementById("taskBody");
   taskBody.innerHTML = "";
@@ -63,6 +62,7 @@ function createTaskBody(tasks) {
     deleteImg.setAttribute("alt", "delete");
     deleteBtn.appendChild(deleteImg);
     taskOperationCol.appendChild(deleteBtn);
+
     //更新按钮
     let updateBtn = document.createElement("button");
     updateBtn.classList.add("btn");
