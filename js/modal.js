@@ -242,6 +242,6 @@ function createDeleteTaskPopover(id) {
   let modalContainer = document.getElementById("modalContainer");
   modalContainer.innerHTML = "";
   modalContainer.appendChild(p);
-  //不是alert，还是modal，只显示一句话，不显示名字、描述等等
+  //不是alert，还是modal，不过只显示这句话，不显示名字、描述等等
   showModalPopover();
 }

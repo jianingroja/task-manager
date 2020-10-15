@@ -2,7 +2,7 @@
 
 //渲染整个页面
 function renderPage() {
-  //showStatisticsCards();
+  showStatisticsCards();
   showAllTasks();
 }
 
@@ -80,6 +80,55 @@ function createTaskBody(tasks) {
     taskRow.appendChild(taskOperationCol);
     taskBody.appendChild(taskRow);
   });
+}
+
+//显示任务统计栏数据
+function showStatisticsCards() {
+  let allTaskCount = document.getElementById("allTaskCount");
+  let activeTaskCount = document.getElementById("activeTaskCount");
+  let paddingTaskCount = document.getElementById("pendingTaskCount");
+  let closedTaskCount = document.getElementById("closedTaskCount");
+
+  let activeTaskProp = document.getElementById("activeTaskProportion");
+  let paddingTaskProp = document.getElementById("pendingTaskProportion");
+  let closedTaskProp = document.getElementById("closedTaskProportion");
+
+  let allTasks = getAllTasks();
+  allTaskCount.textContent = allTasks.length;
+  countTasks(activeTaskCount, "Active", activeTaskProp);
+  countTasks(paddingTaskCount, "Padding", paddingTaskProp);
+  countTasks(closedTaskCount, "Closed", closedTaskProp);
+}
+
+//统计任务数据
+function countTasks(countDom, status, propDom) {
+  countDom.textContent = 0;
+  let allTasks = getAllTasks();
+  allTasks.forEach((task) => {
+    if (task.status === status) {
+      countDom.textContent++;
+    }
+  });
+
+  if (allTasks.length === 0) {
+    propDom.textContent = "0%";
+  } else {
+    //0.14*100 精度问题
+    propDom.textContent =
+      Math.floor(
+        parseFloat((countDom.textContent / allTasks.length).toFixed(2)) * 100
+      ) + "%";
+  }
+}
+
+//根据status筛选任务
+function filterTaskByStatus(status) {
+  if (status === "all") {
+    showAllTasks();
+  } else {
+    tasks = findTasksByStatus(status);
+    createTaskBody(tasks);
+  }
 }
 
 window.onload = function () {

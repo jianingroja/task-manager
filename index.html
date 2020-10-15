@@ -15,33 +15,51 @@
       </header>
       <!--任务分类和百分比展示-->
       <nav class="overview">
-        <section class="statistics all-task">
+        <section
+          class="statistics all-task"
+          onclick="filterTaskByStatus('all')"
+        >
           <div class="statistics-left">
             <h3 class="statistics-title">All Tasks</h3>
             <p id="allTaskCount" class="statistics-content">3</p>
           </div>
           <div class="statistics-right"></div>
         </section>
-        <section class="statistics active-task">
+        <section
+          class="statistics active-task"
+          onclick="filterTaskByStatus('Active')"
+        >
           <div class="statistics-left">
             <h3 class="statistics-title">Active Tasks</h3>
             <p id="activeTaskCount" class="statistics-content">3</p>
           </div>
-          <div class="statistics-right"></div>
+          <div class="statistics-right">
+            <p id="activeTaskProportion" class="statistics-proportion">60%</p>
+          </div>
         </section>
-        <section class="statistics pending-task">
+        <section
+          class="statistics pending-task"
+          onclick="filterTaskByStatus('Padding')"
+        >
           <div class="statistics-left">
             <h3 class="statistics-title">Pending Tasks</h3>
             <p id="pendingTaskCount" class="statistics-content">3</p>
           </div>
-          <div class="statistics-right"></div>
+          <div class="statistics-right">
+            <p id="pendingTaskProportion" class="statistics-proportion"></p>
+          </div>
         </section>
-        <section class="statistics closed-task">
+        <section
+          class="statistics closed-task"
+          onclick="filterTaskByStatus('Closed')"
+        >
           <div class="statistics-left">
             <h3 class="statistics-title">Closed Tasks</h3>
             <p id="closedTaskCount" class="statistics-content">3</p>
           </div>
-          <div class="statistics-right"></div>
+          <div class="statistics-right">
+            <p id="closedTaskProportion" class="statistics-proportion"></p>
+          </div>
         </section>
       </nav>
       <!--任务列表的article-->

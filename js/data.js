@@ -16,3 +16,7 @@ function removeTask(id) {
   let leftTasks = getAllTasks().filter((task) => task.id !== id);
   saveAllTasks(leftTasks);
 }
+
+function findTasksByStatus(status) {
+  return getAllTasks().filter((task) => task.status === status);
+}
