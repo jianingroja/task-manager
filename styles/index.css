@@ -62,6 +62,7 @@ body {
 .statistics-title {
   margin: 0;
   padding: 8px;
+  width: max-content;
 }
 
 .statistics-content {
