@@ -20,3 +20,7 @@ function removeTask(id) {
 function findTasksByStatus(status) {
   return getAllTasks().filter((task) => task.status === status);
 }
+
+function findTasksByName(name) {
+  return getAllTasks().filter((task) => task.name.includes(name));
+}

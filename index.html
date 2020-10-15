@@ -70,10 +70,12 @@
           <div class="tools">
             <input
               type="text"
+              id="searchInput"
               class="search-input"
               placeholder="Please Enter Task Name to Search"
+              onkeydown="searchTasks(event)"
             />
-            <button class="btn search-btn">
+            <button class="btn search-btn" onclick="filterTaskByName()">
               <img src="./images/search.svg" alt="search" />
             </button>
             <button class="btn add-btn" onclick="createAddTaskPopover()">

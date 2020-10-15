@@ -121,13 +121,34 @@ function countTasks(countDom, status, propDom) {
   }
 }
 
-//根据status筛选任务
+//根据状态检索任务，写在html中
 function filterTaskByStatus(status) {
   if (status === "all") {
     showAllTasks();
   } else {
     tasks = findTasksByStatus(status);
     createTaskBody(tasks);
+  }
+}
+
+//根据任务名检索任务，点击搜索按钮搜索任务，写在html中
+function filterTaskByName() {
+  let searchInput = document.getElementById("searchInput");
+  if (searchInput.value) {
+    let taskName = searchInput.value;
+    let tasks = findTasksByName(taskName);
+    createTaskBody(tasks);
+  } else {
+    showAllTasks();
+  }
+}
+
+//搜按回车搜索任务
+function searchTasks(event) {
+  // let searchInput = document.getElementById("searchInput");
+  if (event.keyCode === 13) {
+    // console.log("test");
+    filterTaskByName();
   }
 }
 
