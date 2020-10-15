@@ -222,3 +222,26 @@ function updateTask(id) {
   renderPage();
   hideModalPopover();
 }
+
+//删除任务
+function deleteTask(id) {
+  removeTask(id);
+  renderPage();
+  hideModalPopover();
+}
+
+//删除任务弹出框
+function createDeleteTaskPopover(id) {
+  const icon = "./images/modal_delete_icon.svg";
+  const title = "Delete This Task Wohoo";
+  const okBtnClickEvent = "deleteTask(" + id + ")";
+  createPopoverHeaderAndFooter(icon, title, okBtnClickEvent);
+  let p = document.createElement("p");
+  let taskName = findTask(id).name;
+  p.textContent = 'Do you confirm to delete task: "' + taskName + '" ?';
+  let modalContainer = document.getElementById("modalContainer");
+  modalContainer.innerHTML = "";
+  modalContainer.appendChild(p);
+  //不是alert，还是modal，只显示一句话，不显示名字、描述等等
+  showModalPopover();
+}
