@@ -7,8 +7,8 @@ function renderPage() {
 }
 
 // 显示所有任务
-function showAllTasks(sortKey = "createDate", sortValue = -1) {
-  //sortTasks(sortKey, sortValue);
+function showAllTasks(sortKey = "createDate", sortValue = 1) {
+  sortTasks(sortKey, sortValue);
   let allTasks = getAllTasks();
   createTaskBody(allTasks);
 }
@@ -86,17 +86,17 @@ function createTaskBody(tasks) {
 function showStatisticsCards() {
   let allTaskCount = document.getElementById("allTaskCount");
   let activeTaskCount = document.getElementById("activeTaskCount");
-  let paddingTaskCount = document.getElementById("pendingTaskCount");
+  let pendingTaskCount = document.getElementById("pendingTaskCount");
   let closedTaskCount = document.getElementById("closedTaskCount");
 
   let activeTaskProp = document.getElementById("activeTaskProportion");
-  let paddingTaskProp = document.getElementById("pendingTaskProportion");
+  let pendingTaskProp = document.getElementById("pendingTaskProportion");
   let closedTaskProp = document.getElementById("closedTaskProportion");
 
   let allTasks = getAllTasks();
   allTaskCount.textContent = allTasks.length;
   countTasks(activeTaskCount, "Active", activeTaskProp);
-  countTasks(paddingTaskCount, "Padding", paddingTaskProp);
+  countTasks(pendingTaskCount, "Pending", pendingTaskProp);
   countTasks(closedTaskCount, "Closed", closedTaskProp);
 }
 
@@ -150,6 +150,28 @@ function searchTasks(event) {
     // console.log("test");
     filterTaskByName();
   }
+}
+
+//根据任务名称排序
+function sortTasks(sortKey, sortValue) {
+  console.log("test");
+  let tasks = getAllTasks();
+  // let newTasks = [...allTasks];
+  tasks.sort((taskA, taskB) => {
+    if (taskA[sortKey] < taskB[sortKey]) {
+      return -sortValue;
+    }
+    if (taskA[sortKey] > taskB[sortKey]) {
+      return sortValue;
+    }
+    return 0;
+  });
+
+  let newTasks = tasks.map((task, index) => {
+    task.id = index + 1;
+    return task;
+  });
+  saveAllTasks(newTasks);
 }
 
 window.onload = function () {

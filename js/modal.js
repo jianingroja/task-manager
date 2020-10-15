@@ -132,17 +132,17 @@ function createPopoverContent(task) {
     activeLable.setAttribute("for", "active");
     statusContainer.appendChild(activeLable);
 
-    let paddingInput = document.createElement("input");
-    paddingInput.setAttribute("type", "radio");
-    paddingInput.setAttribute("id", "padding");
-    paddingInput.setAttribute("name", "Status");
-    paddingInput.setAttribute("value", "Padding");
-    // paddingInput.checked = task.status === "Padding";
-    statusContainer.appendChild(paddingInput);
-    let paddingLable = document.createElement("label");
-    paddingLable.textContent = "Padding";
-    paddingLable.setAttribute("for", "padding");
-    statusContainer.appendChild(paddingLable);
+    let pendingInput = document.createElement("input");
+    pendingInput.setAttribute("type", "radio");
+    pendingInput.setAttribute("id", "pending");
+    pendingInput.setAttribute("name", "Status");
+    pendingInput.setAttribute("value", "Pending");
+    // pendingInput.checked = task.status === "Pending";
+    statusContainer.appendChild(pendingInput);
+    let pendingLable = document.createElement("label");
+    pendingLable.textContent = "Pending";
+    pendingLable.setAttribute("for", "pending");
+    statusContainer.appendChild(pendingLable);
 
     let closedInput = document.createElement("input");
     closedInput.setAttribute("type", "radio");
@@ -160,8 +160,8 @@ function createPopoverContent(task) {
       activeInput.setAttribute("checked", "");
     }
 
-    if (task.status === "Padding") {
-      paddingInput.setAttribute("checked", "");
+    if (task.status === "Pending") {
+      pendingInput.setAttribute("checked", "");
     }
 
     if (task.status === "Closed") {

@@ -77,7 +77,7 @@ body {
   flex-grow: 1;
 }
 
-.statistics_proportion {
+.statistics-proportion {
   font-size: 50px;
   margin: 0;
   padding: 0 10px;
@@ -192,16 +192,37 @@ body {
   width: 5%;
 }
 
+.task-name-col.stable {
+  width: 16%;
+  display: flex;
+}
+
 .task-name-col {
   width: 16%;
   display: flex;
+  /*怎么让任务名称也使用省略号，展开时同时展开任务描述呢
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; /*向下展示溢出内容
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  margin-right: 5px;
+  cursor: pointer;
+  */
+}
+
+.task-name-col:hover {
+  overflow: visible;
+
+  -webkit-box-orient: inherit;
+  text-overflow: inherit;
 }
 
 .task-desc-col {
   width: 45%;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-box-orient: vertical; /*放置鼠标时，向下展示溢出内容*/
+  -webkit-box-orient: vertical; /*向下展示溢出内容*/
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   margin-right: 5px;
@@ -210,10 +231,9 @@ body {
 
 .task-desc-col:hover {
   overflow: visible;
-  /* 展示溢出内容时，不要让行高变化
+
   -webkit-box-orient: inherit;
   text-overflow: inherit;
-  */
 }
 
 .task-deadline-col {

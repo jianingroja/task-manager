@@ -39,7 +39,7 @@
         </section>
         <section
           class="statistics pending-task"
-          onclick="filterTaskByStatus('Padding')"
+          onclick="filterTaskByStatus('Pending')"
         >
           <div class="statistics-left">
             <h3 class="statistics-title">Pending Tasks</h3>
@@ -90,26 +90,44 @@
             <thead class="task-header">
               <tr class="task-row">
                 <th class="task-num-col">#</th>
-                <th class="task-name-col">
+                <th class="task-name-col stable">
                   Task Name
                   <span class="sort-container">
-                    <button class="btn sort-btn sort-up"></button>
-                    <button class="btn sort-btn sort-down"></button>
+                    <button
+                      class="btn sort-btn sort-up"
+                      onclick="showAllTasks('name',1)"
+                    ></button>
+                    <button
+                      class="btn sort-btn sort-down"
+                      onclick="showAllTasks('name',-1)"
+                    ></button>
                   </span>
                 </th>
                 <th class="task-desc-col">Task Description</th>
                 <th class="task-deadline-col">
                   Deadline
                   <span class="sort-container">
-                    <button class="btn sort-btn sort-up"></button>
-                    <button class="btn sort-btn sort-down"></button>
+                    <button
+                      class="btn sort-btn sort-up"
+                      onclick="showAllTasks('deadline',1)"
+                    ></button>
+                    <button
+                      class="btn sort-btn sort-down"
+                      onclick="showAllTasks('deadline',-1)"
+                    ></button>
                   </span>
                 </th>
                 <th class="task-status-col">
                   Status
                   <span class="sort-container">
-                    <button class="btn sort-btn sort-up"></button>
-                    <button class="btn sort-btn sort-down"></button>
+                    <button
+                      class="btn sort-btn sort-up"
+                      onclick="showAllTasks('status',1)"
+                    ></button>
+                    <button
+                      class="btn sort-btn sort-down"
+                      onclick="showAllTasks('status',-1)"
+                    ></button>
                   </span>
                 </th>
                 <th class="task-operation-col">Operation</th>
