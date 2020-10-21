@@ -174,6 +174,10 @@ function sortTasks(sortKey, sortValue) {
   saveAllTasks(newTasks);
 }
 
+//test fixing bugs
 window.onload = function () {
+  if (!getAllTasks()) {
+    saveAllTasks([]);
+  }
   renderPage();
 };
