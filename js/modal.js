@@ -48,10 +48,11 @@ function createTask() {
 
   //若不为空则关闭弹出框，新增任务行
   let allTask = getAllTasks(); //复制已有任务
-  const maxId = allTask.reduce(
-    (preId, task) => (preId > task.id ? preId : task.id),
-    0
-  );
+
+  const maxId = !allTask
+    ? (maxId = 0)
+    : allTask.reduce((preId, task) => (preId > task.id ? preId : task.id), 0);
+
   let task = {
     id: maxId + 1,
     name: taskName.value,
