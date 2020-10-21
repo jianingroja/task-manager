@@ -94,7 +94,8 @@ function showStatisticsCards() {
   let closedTaskProp = document.getElementById("closedTaskProportion");
 
   let allTasks = getAllTasks();
-  allTaskCount.textContent = allTasks.length;
+  //test fixing bugs
+  allTaskCount.textContent = allTasks ? allTasks.length : "0";
   countTasks(activeTaskCount, "Active", activeTaskProp);
   countTasks(pendingTaskCount, "Pending", pendingTaskProp);
   countTasks(closedTaskCount, "Closed", closedTaskProp);
